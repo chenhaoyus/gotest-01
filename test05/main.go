@@ -1,94 +1,59 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	var a int = 11
-	if b := 1; a > 10 {
-		b = 2
-		// c = 2
-		fmt.Println("a > 10")
-	} else if c := 3; b > 1 {
-		b = 3
-		fmt.Println("b > 1")
-	} else {
-		fmt.Println("其他")
-		if c == 3 {
-			fmt.Println("c == 3")
-		}
-		fmt.Println(b)
-		fmt.Println(c)
+	fmt.Println("Hello, World!")
+
+	for i := 0; i < 10; i++ {
+		fmt.Println("======", i, "==========")
 	}
 
-	test(a)
-	test02(a)
-	test03()
-	test04()
-}
-
-func test(a int) {
-	switch a {
-	case 1:
-		fmt.Println("a == 1")
-	case 2:
-		fmt.Println("a == 2")
-	default:
-		fmt.Println("其他")
-	}
-}
-
-func test02(a int) {
-	v := "a" + "b"
-	switch b := 2; a {
-	case 1:
-		fmt.Println("a == 1", b)
-	case 2:
-		fmt.Println("a == 2"+string(b), b)
-	default:
-		fmt.Println("其他"+v, b)
-	}
-}
-
-func test03() {
-
+	// 方式2
 	b := 1
+	for b < 10 {
+		fmt.Println("方式2，第", b, "次循环")
+		b++
+	}
 
-	var a interface{}
-	a = &b
+	test01()
+	test02()
 
-	switch v := a.(type) {
-	case int:
-		fmt.Println("int", v)
+	a := aaa{name: "张三", age: 18}
 
-	case *int:
-		fmt.Println("*int", v)
-	default:
-		fmt.Println("其他", v)
+	functest = a.test04
+
+	functest()
+}
+
+func test01() {
+	clousre := func() {
+		fmt.Println("this is a clousre function")
+	}
+	clousre()
+}
+
+func test02() {
+
+	clousre := test03()
+
+	clousre()
+}
+
+func test03() func() {
+
+	return func() {
+		fmt.Println("this is a clousre function")
 	}
 }
 
-type name string
-type age int
-type salary float64
+var functest func()
 
-func constumType(n name, a age, s salary) {
-	fmt.Println("name:", n)
-	fmt.Println("age:", a)
-	fmt.Println("salary:", s)
+type aaa struct {
+	name string
+	age  int
 }
 
-func test04() {
-	var n name = "张三"
-	switch v := interface{}(n).(type) {
-	case name:
-		fmt.Println("name", v)
-	case age:
-		fmt.Println("age", v)
-	case salary:
-		fmt.Println("salary", v)
-	default:
-		fmt.Println("其他", v)
-	}
+func (a *aaa) test04() {
+	fmt.Println("name:", a.name, "age:", a.age)
 }
