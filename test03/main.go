@@ -57,6 +57,11 @@ func (c C) modityD() {
 	c.d[2] = 33
 }
 
+func (c C) modityDs() {
+	c.d = append(c.d, 44)
+	fmt.Println("other c: ", c.d)
+}
+
 func callStructMethod() {
 	var a A
 	a = A{
@@ -115,5 +120,12 @@ func main() {
 	cp.modityD()
 	fmt.Println("------------------cp.modityD")
 	fmt.Println(c.d)
+	fmt.Println(cp.d)
+
+	fmt.Println("-------before-----------cp.modityDs")
+	cp.modityDs()
+	fmt.Println("-------after-----------cp.modityDs")
+	fmt.Println(c.d)
+	fmt.Println(len(c.d))
 	fmt.Println(cp.d)
 }
