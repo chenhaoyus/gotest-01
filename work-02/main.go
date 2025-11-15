@@ -42,6 +42,10 @@ func main() {
 
 	fmt.Println(v)
 
+	fmt.Println("====================两数之和========================")
+	result := test05([]int{2, 7, 11, 15}, 9)
+	fmt.Println(result)
+
 }
 
 func test01(s string) bool {
@@ -153,4 +157,33 @@ func test04(nums []int) int {
 	fmt.Println(nums)
 
 	return len(nums)
+}
+
+func test05(nums []int, target int) []int {
+	var addMap map[int]int = make(map[int]int)
+
+	var result []int = make([]int, 0)
+
+	for i := 0; i < len(nums); i++ {
+
+		for j := 1; j < len(nums); j++ {
+
+			if i == j {
+				continue
+			}
+
+			if target == nums[i]+nums[j] {
+				_, ok1 := addMap[nums[i]]
+				_, ok2 := addMap[nums[j]]
+
+				if !ok1 && !ok2 {
+					addMap[nums[i]] = nums[j]
+					result = append(result, i)
+					result = append(result, j)
+				}
+
+			}
+		}
+	}
+	return result
 }
