@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/gormlearn/globa"
-	_ "github.com/gormlearn/globa"
+
+	"github.com/go-test01/gormlearn/globa"
+
 	"gorm.io/gorm"
 )
 

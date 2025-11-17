@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/gormlearn/globa"
+
+	"github.com/go-test01/gormlearn/globa"
 	"github.com/jmoiron/sqlx"
 )
 

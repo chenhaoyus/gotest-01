@@ -2,7 +2,7 @@ package main
 
 import (
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/gormlearn/globa"
+	"github.com/go-test01/gormlearn/globa"
 	"gorm.io/gorm"
 )
 
